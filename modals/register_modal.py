@@ -2,6 +2,7 @@ import discord
 from discord import ui
 
 import config
+from utils.simple_embed import get_simple_embed
 from database.connection import SessionLocal
 from database.repositories.player_repo import PlayerRepository
 
@@ -56,21 +57,31 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
         trophies = self.cr_trophies.value
 
         player_role = discord.utils.get(interaction.guild.roles, id=config.ROLES["player"]); # type: ignore
-        await interaction.user.add_roles(player_role) # type: ignore
-        player = player_repo.create_player(str(interaction.user.id), first_name, last_name, tag, pseudo, int(trophies))
+        player = None
+        try:
+            await interaction.user.add_roles(player_role) # type: ignore
+            await interaction.user.edit(nick=f"{player.first_name} {player.last_name}") # type: ignore
+            player = player_repo.create_player(str(interaction.user.id), first_name, last_name, tag, pseudo, int(trophies))
+        except:
+            pass
 
-        await interaction.user.edit(nick=f"{player.first_name} {player.last_name}") # type: ignore
-
-        embed = discord.Embed(
-            title="Enregistrement complété",
-            description=(
-                f"Merci {player.first_name} {player.last_name}, votre compte Clash Royale a bien été enregistré !\n\n"
-                f"**Pseudo :** {pseudo}\n"
-                f"**Tag :** #{tag}\n"
-                f"**Trophées :** {trophies}"
-            ),
-            color=discord.Color.green()
-        )
+        if player:
+            embed = get_simple_embed(title="Enregistrement complété",
+                description=(
+                    f"Merci {player.first_name} {player.last_name}, votre compte Clash Royale a bien été enregistré !\n\n"
+                    f"**Pseudo :** {pseudo}\n"
+                    f"**Tag :** #{tag}\n"
+                    f"**Trophées :** {trophies}"
+                ),
+                color=discord.Color.green())
+        else:
+            embed = get_simple_embed(
+                title="Un bug a eu lieu...",
+                description=(
+                    f"Contactez <@677579030966304769> pour qu'il règle votre problème !"
+                ),
+                color=discord.Color.red()
+            )
 
         await interaction.user.send(
             embed=embed
