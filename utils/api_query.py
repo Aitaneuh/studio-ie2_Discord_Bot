@@ -15,6 +15,7 @@ async def get_player_data(tag):
             return {
                 "name": data['name'],
                 "trophies": data['trophies'],
-                "best": data['bestTrophies']
+                "best": data['bestTrophies'],
+                "acc_wins": data['wins']
             }
         return None
