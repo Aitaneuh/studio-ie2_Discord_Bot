@@ -6,7 +6,7 @@ class PlayerRepository:
         self.db = db
 
     def create_player(self, discord_id: str, first_name: str, last_name: str, cr_tag: str, cr_username: str, cr_trophy_count: int) -> Player:
-        player = Player(discord_id=discord_id, first_name=first_name, last_name=last_name, cr_tag=cr_tag, cr_username=cr_username, cr_trophy_count=cr_trophy_count, wins=0, losses=0, ties=0)
+        player = Player(discord_id=discord_id, first_name=first_name, last_name=last_name, cr_tag=cr_tag, cr_username=cr_username, cr_trophy_count=cr_trophy_count, wins=0, losses=0)
         self.db.add(player)
         self.db.commit()
         self.db.refresh(player)
