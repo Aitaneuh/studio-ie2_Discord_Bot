@@ -2,3 +2,5 @@ discord.py
 SQLAlchemy
 python-dotenv
 humanize
+httpx
+asyncio
