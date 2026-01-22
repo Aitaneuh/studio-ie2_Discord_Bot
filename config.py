@@ -3,6 +3,7 @@ import os
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
+API_TOKEN = os.getenv('API_TOKEN')
 command_prefix = "!"
 activity = "Tournoi Clash Royale"
 
