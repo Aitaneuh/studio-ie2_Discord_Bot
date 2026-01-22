@@ -15,7 +15,6 @@ class Player(Base):
     cr_trophy_count = Column(Integer, nullable=False)
     wins = Column(Integer, nullable=False)
     losses = Column(Integer, nullable=False)
-    ties = Column(Integer, nullable=False)
 
     games = relationship("GamePlayer", back_populates="player")
 
