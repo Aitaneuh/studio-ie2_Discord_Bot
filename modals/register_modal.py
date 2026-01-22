@@ -52,6 +52,7 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
         pseudo = player_data["name"]
         trophies = player_data["trophies"]
         best_trophies = player_data["best"]
+        acc_wins = player_data["acc_wins"]
 
         
         try:
@@ -61,7 +62,8 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
                 last_name, 
                 tag, 
                 pseudo, 
-                best_trophies
+                best_trophies,
+                acc_wins
             )
 
             if player_role:
