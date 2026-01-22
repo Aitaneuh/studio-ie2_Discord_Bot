@@ -36,6 +36,9 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
         self.add_item(self.cr_tag)
 
     async def on_submit(self, interaction: discord.Interaction):
+        player_role = discord.utils.get(interaction.guild.roles, id=config.ROLES["player"])
+        if player_role in interaction.user.roles:
+            return await interaction.followup.send(embed=get_simple_embed("Vous êtes déjà enregistré."), color=discord.Color.red(), ephemeral=True)
         await interaction.response.defer(ephemeral=True)
 
         first_name = self.first_name.value.capitalize()
@@ -44,13 +47,12 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
         
         player_data = await get_player_data(tag)
         if player_data == None:
-            return await interaction.followup.send("Le nombre de trophées doit être un chiffre.", ephemeral=True)
+            return await interaction.followup.send(embed=get_simple_embed("Veuillez entrer un TAG valide", color=discord.Color.red()), ephemeral=True)
         
         pseudo = player_data["name"]
         trophies = player_data["trophies"]
         best_trophies = player_data["best"]
 
-        player_role = discord.utils.get(interaction.guild.roles, id=config.ROLES["player"])
         
         try:
             player = player_repo.create_player(
