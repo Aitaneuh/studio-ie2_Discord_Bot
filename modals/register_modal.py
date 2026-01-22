@@ -38,7 +38,7 @@ class RegisterModal(discord.ui.Modal, title="Enregistrement Clash Royale"):
     async def on_submit(self, interaction: discord.Interaction):
         player_role = discord.utils.get(interaction.guild.roles, id=config.ROLES["player"])
         if player_role in interaction.user.roles:
-            return await interaction.followup.send(embed=get_simple_embed("Vous êtes déjà enregistré."), color=discord.Color.red(), ephemeral=True)
+            return await interaction.followup.send(embed=get_simple_embed("Vous êtes déjà enregistré.", color=discord.Color.red()), ephemeral=True)
         await interaction.response.defer(ephemeral=True)
 
         first_name = self.first_name.value.capitalize()
