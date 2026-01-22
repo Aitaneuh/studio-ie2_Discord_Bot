@@ -13,6 +13,7 @@ class Player(Base):
     cr_tag = Column(String, unique=True, nullable=False)
     cr_username = Column(String, nullable=False)
     cr_trophy_count = Column(Integer, nullable=False)
+    acc_wins = Column(Integer, nullable=False)
     wins = Column(Integer, nullable=False)
     losses = Column(Integer, nullable=False)
 
