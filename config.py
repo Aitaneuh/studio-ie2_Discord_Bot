@@ -16,6 +16,11 @@ CHANNELS = {
     "registrations": 1441051229051555880,
 }
 
+CATEGORIES = {
+    "tournament": 1443191444348076093,
+    "matchs": 1441050652230029352
+}
+
 # Roles
 ROLES = {
     # general
