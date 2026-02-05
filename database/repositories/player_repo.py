@@ -17,3 +17,9 @@ class PlayerRepository:
 
     def get_all_players(self) -> list[Player]:
         return self.db.query(Player).all()
+    
+    def set_player_seed(self, discord_id: str, seed: int) -> Player | None:
+        player = self.db.query(Player).filter(Player.discord_id == discord_id).first()
+        player.seed = seed
+        self.db.commit()
+        return player

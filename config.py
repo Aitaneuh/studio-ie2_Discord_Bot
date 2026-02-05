@@ -7,7 +7,7 @@ API_TOKEN = os.getenv('API_TOKEN')
 command_prefix = "!"
 activity = "Tournoi Clash Royale"
 
-initial_extensions = ["cogs.admin", "cogs.register"]
+initial_extensions = ["cogs.admin", "cogs.register", "cogs.tournament"]
 
 GUILD_ID = 1385468184756486256
 

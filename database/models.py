@@ -14,6 +14,7 @@ class Player(Base):
     cr_username = Column(String, nullable=False)
     cr_trophy_count = Column(Integer, nullable=False)
     acc_wins = Column(Integer, nullable=False)
+    seed = Column(Integer, nullable=True)
     wins = Column(Integer, nullable=False)
     losses = Column(Integer, nullable=False)
 
