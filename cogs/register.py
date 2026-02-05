@@ -21,14 +21,14 @@ class Register(commands.Cog):
             title="Enregistrement de votre compte Clash Royale",
             description=(
                 "Pour participer au tournoi, vous devez enregistrer votre compte Clash Royale.\n\n"
-                "**Des informations de compte vous seront demandées, voici où les trouver :**\n\n"
-                "**1 — Pseudo :** Votre nom dans Clash Royale.\n"
-                "**2 — Tag :** Le code unique commençant par `#`. \n"
-                "**3 — Trophées :** Le nombre total de trophées affiché sur votre profil.\n\n"
+                "**Le tag de votre compte vous sera demandé, voici où le trouver :**\n\n"
+                "1 — Cliquez sur votre profile pour ouvrir la page de profile.\n"
+                "2 — Cliquez sur votre tag. \n"
+                "3 — Cliquez sur \"Copier l'identifiant\".\n\n"
             ),
             color=discord.Color.dark_blue()
         )
-        embed.set_image(url="https://i.imgur.com/t6KNWRG.png")
+        embed.set_image(url="https://i.imgur.com/EsTmW6W.jpeg")
 
         embed.set_footer(
             text="Assurez-vous que vos informations sont correctes. En cas d’erreur, contactez un organisateur."
