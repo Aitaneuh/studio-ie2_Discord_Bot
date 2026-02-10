@@ -48,7 +48,6 @@ class Tournament(commands.Cog):
 
         players = player_repo.get_all_players()
 
-
         seeded_players = [p for p in players if p.seed is not None]
 
         if len(seeded_players) < 32:
@@ -67,7 +66,6 @@ class Tournament(commands.Cog):
         blocks[1].reverse()
         blocks[3].reverse()
 
-        # Build groups
         groups: list[list] = [[] for _ in range(32)]
 
         for block in blocks:
