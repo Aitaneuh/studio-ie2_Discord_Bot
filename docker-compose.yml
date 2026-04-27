@@ -2,8 +2,6 @@ services:
   bot:
     build: .
     restart: unless-stopped
-    env_file:
-      - .env
     volumes:
       - ./main.db:/app/main.db
       - ./logs:/app/logs
