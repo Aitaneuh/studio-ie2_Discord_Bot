@@ -1,6 +1,6 @@
 services:
   bot:
-    build: .
+    build: aitaneuh/studio_ie2_bot:latest
     restart: unless-stopped
     volumes:
       - ./main.db:/app/main.db
