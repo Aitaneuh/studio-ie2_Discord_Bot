@@ -14,6 +14,7 @@ GUILD_ID = 1385468184756486256
 # Channels
 CHANNELS = {
     "registrations": 1441051229051555880,
+    "elimination": 1498253656313561168,
 }
 
 CATEGORIES = {
